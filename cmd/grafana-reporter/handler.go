@@ -41,8 +41,8 @@ type ServeReportHandler struct {
 // RegisterHandlers registers all http.Handler's with their associated routes to the router
 // Two different serve report handlers are used to provide support for both Grafana v4 (and older) and v5 APIs
 func RegisterHandlers(router *mux.Router, reportServerV4, reportServerV5 ServeReportHandler) {
-	router.Handle("/api/report/{dashId}", reportServerV4)
-	router.Handle("/api/v5/report/{dashId}", reportServerV5)
+	router.Handle("/report/api/report/{dashId}", reportServerV4)
+	router.Handle("/report/api/v5/report/{dashId}", reportServerV5)
 }
 
 func (h ServeReportHandler) ServeHTTP(w http.ResponseWriter, req *http.Request) {
